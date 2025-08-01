@@ -7,7 +7,17 @@ const validateRequest = require("../middleware/validateRequest");
 router.get(
   "/",
   [
-    query("regions").optional().isArray(),
+    query("regions").optional().custom((value) => {
+      // Allow string, array, or comma-separated values
+      if (typeof value === 'string') {
+        const regions = value.split(',').map(r => r.trim());
+        return regions.every(r => ['APAC', 'UK', 'US'].includes(r));
+      }
+      if (Array.isArray(value)) {
+        return value.every(r => ['APAC', 'UK', 'US'].includes(r));
+      }
+      return true;
+    }),
     query("status")
       .optional()
       .isIn([

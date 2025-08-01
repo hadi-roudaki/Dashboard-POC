@@ -1,18 +1,11 @@
-// controllers/orderController.js
 const Order = require("../models/Order");
 const { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } = require("../config");
 const { DateTime } = require("luxon");
 
-const regionTimezones = {
-  APAC: "Australia/Sydney",
-  UK: "Europe/London",
-  US: "America/New_York",
-};
-
 const getOrders = async (req, res) => {
   try {
     const {
-      regions = ["APAC", "UK", "US"],
+      regions,
       status,
       categories,
       search,
@@ -26,16 +19,28 @@ const getOrders = async (req, res) => {
       limit = DEFAULT_PAGE_SIZE,
     } = req.query;
 
+    // Handle regions parameter - can be string, array, or undefined
+    let validatedRegions = ["APAC", "UK", "US"]; // default to all regions
+    if (regions) {
+      if (Array.isArray(regions)) {
+        validatedRegions = regions.filter((r) =>
+          ["APAC", "UK", "US"].includes(r)
+        );
+      } else if (typeof regions === "string") {
+        // Single region or comma-separated regions
+        validatedRegions = regions
+          .split(",")
+          .filter((r) => ["APAC", "UK", "US"].includes(r.trim()));
+      }
+    }
+
     const validatedPage = Math.max(parseInt(page), 1);
-    const parsedLimit = parseInt(limit);
     const validatedLimit = Math.min(
       parseInt(limit) || DEFAULT_PAGE_SIZE,
       MAX_PAGE_SIZE
     );
 
-    console.log(validatedPage, parsedLimit, validatedLimit);
-
-    const query = { region: { $in: regions } };
+    const query = { region: { $in: validatedRegions } };
 
     if (status) query.status = status;
     if (categories) query["items.category"] = { $in: categories.split(",") };
@@ -52,8 +57,8 @@ const getOrders = async (req, res) => {
 
     if (minAmount || maxAmount) {
       query.amount = {};
-      if (minAmount) query.amount.$gte = parseFloat(minAmount) * 1_000_000;
-      if (maxAmount) query.amount.$lte = parseFloat(maxAmount) * 1_000_000;
+      if (minAmount) query.amount.$gte = parseFloat(minAmount) * 1000000;
+      if (maxAmount) query.amount.$lte = parseFloat(maxAmount) * 1000000;
     }
 
     if (search) {
@@ -69,8 +74,6 @@ const getOrders = async (req, res) => {
 
       Order.countDocuments(query),
     ]);
-
-    console.log(`Fetched ${orders.length} orders for page ${total}`);
 
     const summary = await Order.aggregate([
       { $match: query },
@@ -107,8 +110,8 @@ const getOrders = async (req, res) => {
       summary: summary.reduce((acc, curr) => {
         acc[curr.region] = {
           totalOrders: curr.totalOrders,
-          totalRevenue: parseFloat((curr.totalRevenue / 1_000_000).toFixed(2)),
-          avgOrderValue: parseFloat((curr.avgOrderValue / 1_000).toFixed(2)),
+          totalRevenue: parseFloat((curr.totalRevenue / 1000000).toFixed(2)),
+          avgOrderValue: parseFloat((curr.avgOrderValue / 1000).toFixed(2)),
           topCategories: curr.topCategories,
         };
         return acc;

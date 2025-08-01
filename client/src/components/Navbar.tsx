@@ -12,8 +12,8 @@ export function Navbar() {
           <Link to="/" className="hover:text-gray-900">
             Dashboard
           </Link>
-          <Link to="/stock" className="hover:text-gray-900">
-            Stock
+          <Link to="/orders" className="hover:text-gray-900">
+            Orders
           </Link>
           {/* Future links like <Link to="/settings">Settings</Link> */}
         </div>

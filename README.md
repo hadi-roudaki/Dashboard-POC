@@ -2,6 +2,65 @@
 
 This project is a full-stack proof-of-concept dashboard for King Living that aggregates and displays real-time order data from three commerce regions: APAC, UK, and US. It is built using **React + Vite + TypeScript** on the frontend, and **Node.js + Express + MongoDB** on the backend.
 
+## 🎯 Goal Achievement
+
+**Original Goal**: "As a King Living employee, I want to see the orders from our three separate commerce instances on one dashboard that I can view on the office display."
+
+**✅ Solution Delivered**:
+- **Unified Dashboard**: Single view showing data from APAC, UK, and US commerce instances
+- **Office Display Optimized**: Large typography, clear visual hierarchy, auto-refresh functionality
+- **Regional Summary Cards**: Quick overview of each region's performance with proper currency formatting
+- **Real-time Updates**: Auto-refreshes every 30 seconds to keep data current
+- **Comprehensive Order Management**: Detailed order table with filtering and pagination
+- **Responsive Design**: Works on various screen sizes for different office displays
+
+## 🚀 Recent Improvements Made
+
+### 1. **Comprehensive Dashboard Overview**
+- Created a new dashboard page as the default landing page
+- Added regional summary cards for APAC, UK, and US
+- Implemented overall performance metrics
+- Added recent orders preview with "View All" navigation
+
+### 2. **Enhanced Visual Design for Office Display**
+- Improved typography with Inter font and better letter spacing
+- Added proper visual hierarchy with consistent spacing
+- Implemented status badges with color coding
+- Added region flags for quick visual identification
+- Enhanced loading states and error handling
+
+### 3. **Real-time Auto-refresh**
+- Dashboard auto-refreshes every 30 seconds
+- Visual indicator showing refresh status
+- Graceful fallback to mock data when backend is unavailable
+- Last updated timestamp display
+
+### 4. **Better Data Formatting**
+- Proper currency formatting for each region (AUD, GBP, USD)
+- Localized number formatting
+- Improved date/time display
+- Status badges with appropriate colors
+
+### 5. **Advanced Filtering & Controls**
+- Region-based filtering (APAC, UK, US)
+- Status filtering (pending, confirmed, processing, etc.)
+- Search functionality for orders and customers
+- Enhanced pagination with page numbers
+- Results count display
+
+### 6. **Robust Error Handling**
+- Mock data fallback when API is unavailable
+- Graceful error states with user-friendly messages
+- Loading spinners with customizable sizes
+- Network error recovery
+
+### 7. **Office Display Features**
+- Large, readable fonts suitable for wall displays
+- High contrast colors for visibility
+- Auto-refresh indicator
+- Minimal navigation for kiosk-style use
+- Responsive layout for different screen sizes
+
 ---
 
 ## 📦 Tech Stack

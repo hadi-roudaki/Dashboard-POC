@@ -1,47 +1,73 @@
-# 🧪 King Living – Orders Dashboard Frontend
+# 🏢 King Living Orders Dashboard - Frontend
 
-This is the frontend portion of the King Living Orders Dashboard POC. It displays real-time order data fetched from a Node.js + MongoDB backend. The app supports pagination, auto-refresh, and regional insights.
+A modern React TypeScript dashboard for displaying orders from King Living's three commerce instances (APAC, UK, US). Built with Vite, React 19, and Tailwind CSS for optimal performance and office display use.
 
----
+## 🎯 Overview
 
-## 🚀 Setup and Run Instructions
+This frontend application provides a comprehensive dashboard for King Living employees to monitor orders across all regions in real-time. Designed specifically for office display with auto-refresh functionality, responsive design, and professional UI.
 
-### 1. Clone the Repository
+## ✨ Key Features
 
+### 📊 Dashboard Overview
+- **Real-time Auto-refresh**: Updates every 30 seconds for live data
+- **Regional Summary Cards**: APAC 🇦🇺, UK 🇬🇧, US 🇺🇸 with key metrics
+- **Overall Performance**: Total orders, revenue, and cross-region statistics
+- **Recent Orders Preview**: Quick view of latest orders with navigation
+
+### 📋 Advanced Orders Management
+- **Multi-region Filtering**: Filter by APAC, UK, US individually or combined
+- **Status Filtering**: Filter by pending, confirmed, processing, shipped, delivered, cancelled
+- **Real-time Search**: Find orders by ID, customer name, or email
+- **Sortable Columns**: Click headers to sort by date, amount, status, region
+- **Smart Pagination**: Navigate through large datasets efficiently
+
+### 📱 Order Details
+- **Mobile-friendly Design**: Responsive layout optimized for all devices
+- **Complete Information**: Customer details, items, shipping, payment info
+- **Visual Timeline**: Order status progression with icons
+- **Quick Actions**: Email customer, track shipment, print invoice buttons
+- **Back Navigation**: Easy return to orders list
+
+## 🛠 Tech Stack
+
+- **React 19** - Latest React with concurrent features
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS** - Utility-first styling with custom configuration
+- **@preact/signals** - Reactive state management
+- **React Router** - Client-side routing
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 14+ (required for Vite)
+- Backend server running on port 4000
+
+### Installation
 ```bash
-git clone https://github.com/your-username/king-living-orders-dashboard.git
-cd king-living-orders-dashboard
-```
-
-### 2. Install Dependencies
-
-```bash
+# Install dependencies
 npm install
-```
 
-### 3. Configure Environment Variables
-
-Create a `.env` file in the project root:
-
-```bash
-touch .env
-```
-
-Add the following:
-
-```env
-VITE_API_BASE_URL=http://localhost:4000/api
-```
-
-Adjust the URL to match your backend port if different.
-
-### 4. Run the App
-
-```bash
+# Start development server
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173` by default.
+### Environment Configuration
+Create `.env` file:
+```env
+VITE_API_BASE_URL=http://localhost:4000/api
+VITE_USE_MOCK_DATA=false
+```
+
+### Available Scripts
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Lint code
+npm run format       # Format code with Prettier
+npm run format:check # Check code formatting
+```
 
 ---
 
