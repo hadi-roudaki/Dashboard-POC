@@ -135,7 +135,7 @@ Open http://localhost:5173 in your browser.
 
 - Generate a README.md for a React + Node.js orders dashboard app with AI prompt history, setup instructions, and technical decisions."
 
-- "I need to implement a scalable backend for a furniture order dashboard with regions (APAC, UK, US) that handles different currencies and timezones. The data should be filterable."
+- "this project has to be scalable horizontally and Vertically, order dashboard with regions (APAC, UK, US) that handles different currencies and timezones. The data should be filterable."
 
 # 💡 Technical Design Decisions
 

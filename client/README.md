@@ -75,12 +75,9 @@ npm run format:check # Check code formatting
 
 All prompts used with ChatGPT (GPT-4o) to assist development:
 
-1. _“Build me a React dashboard that shows live-updating order values from three commerce regions, each using a different currency and timezone.”_
+1. _“Build me a React + Tailwind dashboard that shows live-updating order values from three commerce regions, each using a different currency and timezone.”_
 2. _“Generate TypeScript types for an order system with customer, shipping address, and item details.”_
-3. _“How can I auto-refresh a paginated table in React using Tailwind?”_
-4. _“Fix: WebSocket connection to ‘ws://localhost/’ failed: WebSocket is closed before the connection is established.”_
-5. _“React table shows no data even though fetch call returns results — how do I fix it?”_
-6. _“Generate a README.md for a React + Node.js orders dashboard app with AI prompt history, setup instructions, and technical decisions.”_
+3. _“Generate a README.md for this project with AI prompt history, setup instructions, and technical decisions.”_
 
 ---
 
@@ -88,9 +85,7 @@ All prompts used with ChatGPT (GPT-4o) to assist development:
 
 - **Vite + React + TypeScript**: Chosen for fast builds and strong typing in a modern React environment.
 - **Tailwind CSS**: Simplifies responsive UI development without custom CSS overhead.
-- **Luxon**: Provides better date handling with timezone support for regional orders.
 - **Signals (optional)**: Designed for state handling that scales cleanly across multiple auto-refreshing components.
-- **REST API structure**: Used instead of GraphQL due to simplicity and time constraints.
 
 ---
 
